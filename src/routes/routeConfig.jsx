@@ -2,7 +2,6 @@ import React from 'react';
 import Dashboard from '../components/Dashboard';
 import OrderList from '../components/OrderList';
 
-// Route configuration data
 export const pageRoutes = [
     {
         path: '/',

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
 
 const products = [
   { name: 'ASOS Ridley High Waist', price: 79.49, quantity: 82, amount: 6518.18 },
@@ -8,7 +9,8 @@ const products = [
   { name: 'Marco Shoes', price: 79.49, quantity: 64, amount: 1965.81 },
 ];
 
-const TopSellingProductsTable = ({ isDark }) => {
+const TopSellingProductsTable = () => {
+  const { isDark } = useTheme();
   return (
     <div className={`w-[70%] p-6 rounded-xl ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-[#F7F9FB]  border-gray-200'} h-auto`}>
       <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Top Selling Products</h3>

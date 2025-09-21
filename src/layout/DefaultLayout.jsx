@@ -23,10 +23,10 @@ import {
     Clock
 } from 'lucide-react';
 import { notifications, activities, contacts } from '../constants/index';
-
+import { useTheme } from '../context/ThemeContext';
 
 const DefaultLayout = ({ children }) => {
-    const [isDark, setIsDark] = useState(false);
+    const { isDark, toggleTheme } = useTheme();
     const [showNotification, setShowNotification] = useState(true);
 
     return (
@@ -146,7 +146,7 @@ const DefaultLayout = ({ children }) => {
                                 <span className={`absolute right-3 top-1/2 transform -translate-y-1/2 text-xs px-2 py-1 rounded ${isDark ? 'text-gray-400 bg-gray-600' : 'text-gray-500 bg-gray-200'}`}>⌘/</span>
                             </div>
                             <button
-                                onClick={() => setIsDark(!isDark)}
+                                onClick={toggleTheme}
                                 className={`p-2 rounded-lg ${isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
                             >
                                 {isDark ? (

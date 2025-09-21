@@ -1,6 +1,6 @@
 import React from 'react';
-import MapSvg from '../assets/Map.svg'
-
+import MapSvg from '../assets/Map.svg';
+import { useTheme } from '../context/ThemeContext';
 
 const revenueData = [
     { location: 'New York', revenue: 72 },
@@ -9,7 +9,8 @@ const revenueData = [
     { location: 'Singapore', revenue: 61 },
 ];
 
-const RevenueByLocation = ({ isDark }) => {
+const RevenueByLocation = () => {
+    const { isDark } = useTheme();
     const maxRevenue = Math.max(...revenueData.map(item => item.revenue));
 
     return (

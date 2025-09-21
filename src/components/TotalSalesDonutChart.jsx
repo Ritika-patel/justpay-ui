@@ -1,19 +1,21 @@
 import React from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { useTheme } from '../context/ThemeContext';
 
 const data = [
-  { name: 'Direct', value: 300.56, color: '#1a202c' }, // Dark for Direct
-  { name: 'Affiliate', value: 135.18, color: '#d2f3c2' }, // Light green for Affiliate
-  { name: 'Sponsored', value: 154.02, color: '#cbd5e0' }, // Light blue/purple for Sponsored
-  { name: 'E-mail', value: 48.96, color: '#a0aec0' }, // Lighter blue for E-mail
+  { name: 'Direct', value: 300.56, color: '#1a202c' },
+  { name: 'Affiliate', value: 135.18, color: '#d2f3c2' },
+  { name: 'Sponsored', value: 154.02, color: '#cbd5e0' },
+  { name: 'E-mail', value: 48.96, color: '#a0aec0' },
 ];
 
-const COLORS_LIGHT = ['#1a202c', '#d2f3c2', '#a78bfa', '#bfdbfe']; // Custom colors for light mode
-const COLORS_DARK = ['#a0aec0', '#d2f3c2', '#a78bfa', '#bfdbfe']; // Custom colors for dark mode, adjusting 'Direct' to be lighter
+const COLORS_LIGHT = ['#1a202c', '#d2f3c2', '#a78bfa', '#bfdbfe'];
+const COLORS_DARK = ['#a0aec0', '#d2f3c2', '#a78bfa', '#bfdbfe'];
 
-const TotalSalesDonutChart = ({ isDark }) => {
+const TotalSalesDonutChart = () => {
+  const { isDark } = useTheme();
   const totalSales = data.reduce((sum, entry) => sum + entry.value, 0);
-  const mainPercentage = ((data[0].value / totalSales) * 100).toFixed(1); // Percentage for the first segment (Direct)
+  const mainPercentage = ((data[0].value / totalSales) * 100).toFixed(1);
 
   // Custom tooltip component
   const CustomTooltip = ({ active, payload }) => {

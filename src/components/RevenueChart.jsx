@@ -1,5 +1,6 @@
 import React from 'react';
-import { Legend, LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Tooltip } from 'recharts';
+import { Legend, LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import { useTheme } from '../context/ThemeContext';
 
 const revenueData = [
     { name: 'Jan', 'Current Week': 12, 'Previous Week': 7.5 },
@@ -10,7 +11,8 @@ const revenueData = [
     { name: 'Jun', 'Current Week': 23, 'Previous Week': 20 },
   ];
 
-const RevenueChart = ({ isDark }) => {
+const RevenueChart = () => {
+    const { isDark } = useTheme();
     return (
       <div className={`w-[70%] p-6 rounded-xl ${isDark ? 'bg-gray-800  border-gray-700' : 'bg-[#F7F9FB]  border-gray-200'} h-[318px]`}>
         <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Revenue</h3>
