@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Search, Bell, Menu, Sun, Moon, Star, Grid3X3, Clock } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Search, Bell, Menu, Sun, Moon, Star, Grid3X3, Clock, ChevronDown } from 'lucide-react';
 import { notifications, activities, contacts } from '../constants/index';
 import { useTheme } from '../context/ThemeContext';
+import { useNavigate } from 'react-router-dom';
 
 // Import SVG icons
 import DefaultIcon from '../assets/default.svg';
@@ -20,6 +21,23 @@ import LaneIcon from '../assets/lane.svg';
 const DefaultLayout = ({ children }) => {
     const { isDark, toggleTheme } = useTheme();
     const [showNotification, setShowNotification] = useState(true);
+    const [showMenuDropdown, setShowMenuDropdown] = useState(false);
+    const navigate = useNavigate();
+    const dropdownRef = useRef(null);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setShowMenuDropdown(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
         <div className='flex min-h-screen ont-inter font-normal text-[14px] leading-[20px] tracking-[0]'>
@@ -65,20 +83,28 @@ const DefaultLayout = ({ children }) => {
                         <p className={` font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-3`}>Dashboards</p>
                         <div className="space-y-1">
                             <div className={`flex items-center space-x-3 px-3 py-2 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-100'} border-l-4 border-blue-500`}>
-                                <img src={DefaultIcon} alt="Default" className="h-5 w-5" />
+                                <div className={`h-5 w-5 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                                    <img src={DefaultIcon} alt="Default" className="h-full w-full" />
+                                </div>
                                 <span className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>Default</span>
                             </div>
-                            <div className="flex items-center space-x-3 px-3 py-2">
-                                <img src={EcommerceIcon} alt="eCommerce" className="h-5 w-5" />
-                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>eCommerce</span>
+                            <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                                <div className="h-5 w-5">
+                                    <img src={EcommerceIcon} alt="eCommerce" className="h-full w-full" />
+                                </div>
+                                <span>eCommerce</span>
                             </div>
-                            <div className="flex items-center space-x-3 px-3 py-2">
-                                <img src={ProjectsIcon} alt="Projects" className="h-5 w-5" />
-                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Projects</span>
+                            <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                                <div className="h-5 w-5">
+                                    <img src={ProjectsIcon} alt="Projects" className="h-full w-full" />
+                                </div>
+                                <span>Projects</span>
                             </div>
-                            <div className="flex items-center space-x-3 px-3 py-2">
-                                <img src={OnlineCourseIcon} alt="Online Courses" className="h-5 w-5" />
-                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Online Courses</span>
+                            <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                                <div className="h-5 w-5">
+                                    <img src={OnlineCourseIcon} alt="Online Courses" className="h-full w-full" />
+                                </div>
+                                <span>Online Courses</span>
                             </div>
                         </div>
                     </div>
@@ -157,9 +183,39 @@ const DefaultLayout = ({ children }) => {
                             <button onClick={() => setShowNotification(!showNotification)} className={`p-2 rounded-lg ${isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}>
                                 <Bell className={`h-5 w-5 ${isDark ? 'text-gray-300' : 'text-gray-600'}`} />
                             </button>
-                            <button className={`p-2 rounded-lg ${isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}>
-                                <Menu className={`h-5 w-5 ${isDark ? 'text-gray-300' : 'text-gray-600'}`} />
-                            </button>
+                            <div className="relative" ref={dropdownRef}>
+                                <button 
+                                    onClick={() => setShowMenuDropdown(!showMenuDropdown)}
+                                    className={`p-2 rounded-lg ${isDark ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+                                >
+                                    <Menu className={`h-5 w-5 ${isDark ? 'text-gray-300' : 'text-gray-600'}`} />
+                                </button>
+                                
+                                {showMenuDropdown && (
+                                    <div className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg z-50 ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border`}>
+                                        <div className="py-1">
+                                            <button
+                                                onClick={() => {
+                                                    navigate('/orders');
+                                                    setShowMenuDropdown(false);
+                                                }}
+                                                className={`block w-full text-left px-4 py-2 text-sm ${isDark ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-gray-100'}`}
+                                            >
+                                                Orders
+                                            </button>
+                                            <button
+                                                onClick={() => {
+                                                    navigate('/dashboard');
+                                                    setShowMenuDropdown(false);
+                                                }}
+                                                className={`block w-full text-left px-4 py-2 text-sm ${isDark ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-700 hover:bg-gray-100'}`}
+                                            >
+                                                Dashboard
+                                            </button>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </header>
