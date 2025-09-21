@@ -25,7 +25,7 @@ import {
 import { notifications, activities, contacts } from '../constants/index';
 
 
-const DefaultLayout = () => {
+const DefaultLayout = ({ children }) => {
     const [isDark, setIsDark] = useState(false);
     const [showNotification, setShowNotification] = useState(true);
 
@@ -34,7 +34,7 @@ const DefaultLayout = () => {
 
 
 
-            <div className={`w-64 ${isDark ? 'bg-gray-800' : 'bg-white'} border-r ${isDark ? 'border-gray-700' : 'border-gray-200'} flex flex-col`}>
+            <div className={`w-64 ${isDark ? 'bg-gray-800' : 'bg-white'} border-r ${isDark ? 'border-gray-700' : 'border-gray-200'} flex flex-col overflow-auto h-screen`}>
                 {/* Logo */}
                 <div className="p-6">
                     <div className="flex items-center space-x-3">
@@ -170,14 +170,14 @@ const DefaultLayout = () => {
 
 
                 <div className='bg-white flex-1 flex flex-col'>
-                    {/* {children} */}
+                    {children}
                 </div>
 
             </div>
 
            { showNotification &&
 
-<aside className={`w-80 ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-l p-6`}>
+<aside className={`w-80 ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'} border-l p-6 overflow-auto h-screen`}>
             {/* Notifications */}
             <div className="mb-8">
               <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Notifications</h3>

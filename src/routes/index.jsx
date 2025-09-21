@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { pageRoutes } from "./routeConfig";
+import DefaultLayout from '../layout/DefaultLayout';
 
 function Router() {
   return (
@@ -10,7 +11,7 @@ function Router() {
           <Route
             key={route.path}
             path={route.path}
-            element={route.element}
+            element={<DefaultLayout>{route.element}</DefaultLayout>}
           />
         ))}
       </Routes>
