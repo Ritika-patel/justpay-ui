@@ -30,8 +30,12 @@ const DefaultLayout = ({ children }) => {
                 {/* Logo */}
                 <div className="p-6">
                     <div className="flex items-center space-x-3">
-                        <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center">
-                            <div className="w-6 h-6 bg-gray-600 rounded-full"></div>
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+                            <img 
+                                src="https://i.pravatar.cc/40?img=1" 
+                                alt="ByeWind Logo" 
+                                className="w-8 h-8 rounded-full object-cover"
+                            />
                         </div>
                         <span className={`text-xl font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>ByeWind</span>
                     </div>
