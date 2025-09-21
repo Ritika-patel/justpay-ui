@@ -30,7 +30,7 @@ const DefaultLayout = ({ children }) => {
     const [showNotification, setShowNotification] = useState(true);
 
     return (
-        <div className='flex min-h-screen '>
+        <div className='flex min-h-screen ont-inter font-normal text-[14px] leading-[20px] tracking-[0]'>
 
 
 
@@ -49,24 +49,24 @@ const DefaultLayout = ({ children }) => {
                     {/* Favorites & Recently */}
                     <div className="mb-8">
                         <div className="flex space-x-8 mb-4">
-                            <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Favorites</p>
-                            <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Recently</p>
+                            <p className={` font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Favorites</p>
+                            <p className={` font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Recently</p>
                         </div>
                         <div className="space-y-2">
                             <div className="flex items-center space-x-3 py-1">
                                 <div className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-gray-500' : 'bg-gray-400'}`}></div>
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Overview</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Overview</span>
                             </div>
                             <div className="flex items-center space-x-3 py-1">
                                 <div className={`w-1.5 h-1.5 rounded-full ${isDark ? 'bg-gray-500' : 'bg-gray-400'}`}></div>
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Projects</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Projects</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Dashboards */}
                     <div className="mb-8">
-                        <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-3`}>Dashboards</p>
+                        <p className={` font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-3`}>Dashboards</p>
                         <div className="space-y-1">
                             <div className={`flex items-center space-x-3 px-3 py-2 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-100'} border-l-4 border-blue-500`}>
                                 <BarChart3 className={`h-5 w-5 ${isDark ? 'text-gray-300' : 'text-gray-700'}`} />
@@ -74,29 +74,29 @@ const DefaultLayout = ({ children }) => {
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
                                 <ShoppingCart className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>eCommerce</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>eCommerce</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
                                 <FolderOpen className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Projects</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Projects</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
                                 <BookOpen className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Online Courses</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Online Courses</span>
                             </div>
                         </div>
                     </div>
 
                     {/* Pages */}
                     <div>
-                        <p className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-3`}>Pages</p>
+                        <p className={` font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-3`}>Pages</p>
                         <div className="space-y-1">
                             <div>
                                 <div className="flex items-center space-x-3 px-3 py-2">
                                     <User className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                                    <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>User Profile</span>
+                                    <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>User Profile</span>
                                 </div>
-                                <div className="ml-12 space-y-1 text-sm">
+                                <div className="ml-12 space-y-1 ">
                                     <div className={`py-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Overview</div>
                                     <div className={`py-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Projects</div>
                                     <div className={`py-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Campaigns</div>
@@ -106,19 +106,19 @@ const DefaultLayout = ({ children }) => {
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
                                 <CreditCard className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Account</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Account</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
                                 <Building2 className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Corporate</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Corporate</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
                                 <Rss className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Blog</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Blog</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
                                 <MessageSquare className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                                <span className={`text-sm ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Social</span>
+                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Social</span>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@ const DefaultLayout = ({ children }) => {
                         <div className="flex items-center space-x-4">
                             <Grid3X3 className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
                             <Star className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
-                            <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'} text-sm`}>Dashboards</span>
+                            <span className={`${isDark ? 'text-gray-300' : 'text-gray-600'} `}>Dashboards</span>
                             <span className={`${isDark ? 'text-gray-500' : 'text-gray-400'}`}>/</span>
                             <span className={`${isDark ? 'text-white' : 'text-gray-900'} font-medium`}>Default</span>
                         </div>
@@ -141,7 +141,7 @@ const DefaultLayout = ({ children }) => {
                                 <input
                                     type="text"
                                     placeholder="Search"
-                                    className={`pl-10 pr-16 py-2 w-80 rounded-lg border ${isDark ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' : 'bg-gray-50 border-gray-200 text-gray-900 placeholder-gray-500'} focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm`}
+                                    className={`pl-10 pr-16 py-2 w-80 rounded-lg border ${isDark ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' : 'bg-gray-50 border-gray-200 text-gray-900 placeholder-gray-500'} focus:outline-none focus:ring-2 focus:ring-blue-500 `}
                                 />
                                 <span className={`absolute right-3 top-1/2 transform -translate-y-1/2 text-xs px-2 py-1 rounded ${isDark ? 'text-gray-400 bg-gray-600' : 'text-gray-500 bg-gray-200'}`}>⌘/</span>
                             </div>
@@ -184,11 +184,11 @@ const DefaultLayout = ({ children }) => {
               <div className="space-y-4">
                 {notifications.map((notification, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-sm">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center ">
                       {notification.icon}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className={`text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>{notification.message}</p>
+                      <p className={` ${isDark ? 'text-white' : 'text-gray-900'}`}>{notification.message}</p>
                       <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'} mt-1`}>{notification.time}</p>
                     </div>
                   </div>
@@ -202,11 +202,11 @@ const DefaultLayout = ({ children }) => {
               <div className="space-y-4">
                 {activities.map((activity, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center ">
                       {activity.avatar}
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className={`text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>{activity.message}</p>
+                      <p className={` ${isDark ? 'text-white' : 'text-gray-900'}`}>{activity.message}</p>
                       <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'} mt-1`}>{activity.time}</p>
                     </div>
                   </div>
@@ -220,10 +220,10 @@ const DefaultLayout = ({ children }) => {
               <div className="space-y-3">
                 {contacts.map((contact, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-sm">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center ">
                       {contact.avatar}
                     </div>
-                    <span className={`text-sm ${isDark ? 'text-white' : 'text-gray-900'}`}>{contact.name}</span>
+                    <span className={` ${isDark ? 'text-white' : 'text-gray-900'}`}>{contact.name}</span>
                   </div>
                 ))}
               </div>

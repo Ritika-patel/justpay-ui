@@ -22,7 +22,7 @@ import {
   Grid3X3,
   Clock
 } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, Tooltip } from 'recharts';
 
 
 const Dashboard = () => {
@@ -53,10 +53,17 @@ const Dashboard = () => {
     { city: 'Singapore', revenue: '61K' }
   ];
 
-
+  const data = [
+    { month: 'Jan', actuals: 16, projections: 4, total: 20 },
+    { month: 'Feb', actuals: 20, projections: 5, total: 25 },
+    { month: 'Mar', actuals: 17, projections: 4, total: 21 },
+    { month: 'Apr', actuals: 21, projections: 6, total: 27 },
+    { month: 'May', actuals: 14, projections: 3, total: 17 },
+    { month: 'Jun', actuals: 20, projections: 5, total: 25 },
+  ];
 
   return (
-     <div className={`${isDark ? 'bg-gray-900' : 'bg-gray-50'} flex overflow-auto`} style={{ height: 'calc(100vh - 60px)' }}>
+    <div className={`${isDark ? 'bg-gray-900' : 'bg-white'} flex overflow-auto`} style={{ height: 'calc(100vh - 60px)' }}>
 
       <div className="flex-1 flex flex-col">
         {/* Header */}
@@ -71,13 +78,13 @@ const Dashboard = () => {
             </div>
 
             {/* Metrics and Chart Row */}
-            <div className="grid grid-cols-3 gap-6 mb-8">
+            <div className="flex gap-10 mb-6">
               {/* Left side - Metrics in 2x2 grid */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="w-[50%] grid grid-cols-2 gap-4">
                 {/* Customers Card */}
-                <div className="p-6 rounded-xl shadow-sm bg-blue-50 border border-blue-100">
+                <div className="h-[112px] p-6 rounded-xl  bg-blue-50 border border-blue-100">
                   <div className="mb-2">
-                    <h3 className="text-sm text-gray-600 mb-3">Customers</h3>
+                    <h3 className="text-sm font-semibold text-gray-600 mb-3">Customers</h3>
                     <div className="flex items-end justify-between">
                       <p className="text-3xl font-bold text-gray-900">3,781</p>
                       <div className="flex items-center space-x-1">
@@ -89,9 +96,9 @@ const Dashboard = () => {
                 </div>
 
                 {/* Orders Card */}
-                <div className={`p-6 rounded-xl shadow-sm ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+                <div className={` h-[112px] p-6 rounded-xl  ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-[#F7F9FB] border border-gray-200'}`}>
                   <div className="mb-2">
-                    <h3 className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>Orders</h3>
+                    <h3 className={`text-sm font-semibold ${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>Orders</h3>
                     <div className="flex items-end justify-between">
                       <p className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>1,219</p>
                       <div className="flex items-center space-x-1">
@@ -103,9 +110,9 @@ const Dashboard = () => {
                 </div>
 
                 {/* Revenue Card */}
-                <div className={`p-6 rounded-xl shadow-sm ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+                <div className={`h-[112px] p-6 rounded-xl  ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-[#F7F9FB] border border-gray-200'}`}>
                   <div className="mb-2">
-                    <h3 className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>Revenue</h3>
+                    <h3 className={`text-sm font-semibold ${isDark ? 'text-gray-400' : 'text-gray-600'} mb-3`}>Revenue</h3>
                     <div className="flex items-end justify-between">
                       <p className={`text-3xl font-bold ${isDark ? 'text-white' : 'text-gray-900'}`}>$695</p>
                       <div className="flex items-center space-x-1">
@@ -117,9 +124,9 @@ const Dashboard = () => {
                 </div>
 
                 {/* Growth Card */}
-                <div className="p-6 rounded-xl shadow-sm bg-purple-50 border border-purple-100">
+                <div className="h-[112px] p-6 rounded-xl  bg-[#E5ECF6] border border-purple-100">
                   <div className="mb-2">
-                    <h3 className="text-sm text-gray-600 mb-3">Growth</h3>
+                    <h3 className="text-sm font-semibold text-gray-600 mb-3">Growth</h3>
                     <div className="flex items-end justify-between">
                       <p className="text-3xl font-bold text-gray-900">30.1%</p>
                       <div className="flex items-center space-x-1">
@@ -132,11 +139,14 @@ const Dashboard = () => {
               </div>
 
               {/* Right side - Projections vs Actuals Chart */}
-              <div className={`col-span-2 p-6 rounded-xl shadow-sm ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+              <div className={`w-[50%] p-6 rounded-xl ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'} h-[252px]`}>
                 <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Projections vs Actuals</h3>
-                <div className="h-80">
+                <div className="h-[190px]">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={projectionData} barCategoryGap="20%">
+                    <BarChart
+                      data={data}
+                      barCategoryGap="20%"
+                    >
                       <XAxis
                         dataKey="month"
                         axisLine={false}
@@ -150,16 +160,31 @@ const Dashboard = () => {
                         domain={[0, 30]}
                         tickFormatter={(value) => `${value}M`}
                       />
-                      <Bar dataKey="value" fill="#93c5fd" radius={[4, 4, 0, 0]} />
+                      <Tooltip
+                        cursor={{ fill: 'transparent' }}
+                        labelFormatter={(label) => `Month: ${label}`}
+                        formatter={(value, name, props) => {
+                          if (name === 'actuals') {
+                            return [`${value}M`, 'Actuals'];
+                          }
+                          if (name === 'projections') {
+                            return [`${value}M`, 'Projections'];
+                          }
+                          return null;
+                        }}
+                      />
+                      <Bar dataKey="actuals" stackId="a" fill="#93c5fd" radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="projections" stackId="a" fill="#c4e3fd" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
               </div>
+
             </div>
 
             {/* Revenue by Location Chart */}
             <div className="mb-8">
-              <div className={`p-6 rounded-xl shadow-sm ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+              <div className={`p-6 rounded-xl  ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
                 <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Revenue by Location</h3>
                 <div className="flex items-center justify-between">
                   <div className="w-48">
@@ -184,7 +209,7 @@ const Dashboard = () => {
             {/* Bottom Charts Row */}
             <div className="grid grid-cols-2 gap-6">
               {/* Revenue Chart */}
-              <div className={`p-6 rounded-xl shadow-sm ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+              <div className={`p-6 rounded-xl  ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-[#F7F9FB] border-gray-200'}`}>
                 <div className="flex items-center justify-between mb-4">
                   <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'}`}>Revenue</h3>
                   <div className="flex items-center space-x-4 text-sm">
@@ -237,7 +262,7 @@ const Dashboard = () => {
               </div>
 
               {/* Total Sales */}
-              <div className={`p-6 rounded-xl shadow-sm ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+              <div className={`p-6 rounded-xl  ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
                 <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Total Sales</h3>
                 <div className="h-48 flex items-center justify-center">
                   <div className="text-center">
@@ -251,7 +276,7 @@ const Dashboard = () => {
             {/* Top Selling Products and Total Sales Row */}
             <div className="grid grid-cols-2 gap-6">
               {/* Top Selling Products */}
-              <div className={`p-6 rounded-xl shadow-sm ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+              <div className={`p-6 rounded-xl  ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
                 <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Top Selling Products</h3>
                 <div className="overflow-x-auto">
                   <table className="w-full">
@@ -300,7 +325,7 @@ const Dashboard = () => {
               </div>
 
               {/* Total Sales */}
-              <div className={`p-6 rounded-xl shadow-sm ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
+              <div className={`p-6 rounded-xl  ${isDark ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'}`}>
                 <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Total Sales</h3>
                 <div className="flex items-center justify-between h-64">
                   <div className="relative w-40 h-40">
