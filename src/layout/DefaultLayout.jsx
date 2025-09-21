@@ -1,29 +1,21 @@
-import React, { useState } from 'react'
-import {
-    Users,
-    ShoppingCart,
-    DollarSign,
-    TrendingUp,
-    Search,
-    Bell,
-    Menu,
-    Sun,
-    Moon,
-    Home,
-    FolderOpen,
-    BarChart3,
-    BookOpen,
-    User,
-    CreditCard,
-    Building2,
-    Rss,
-    MessageSquare,
-    Star,
-    Grid3X3,
-    Clock
-} from 'lucide-react';
+import React, { useState } from 'react';
+import { Search, Bell, Menu, Sun, Moon, Star, Grid3X3, Clock } from 'lucide-react';
 import { notifications, activities, contacts } from '../constants/index';
 import { useTheme } from '../context/ThemeContext';
+
+// Import SVG icons
+import DefaultIcon from '../assets/default.svg';
+import EcommerceIcon from '../assets/eCommerce.svg';
+import ProjectsIcon from '../assets/projects.svg';
+import OnlineCourseIcon from '../assets/onLineCource.svg';
+import UserProfileIcon from '../assets/userProfile.svg';
+import AccountIcon from '../assets/account.svg';
+import CorporateIcon from '../assets/coroporate.svg';
+import BlogIcon from '../assets/blog.svg';
+import ChatIcon from '../assets/chat.svg';
+import BugIcon from '../components/bug.svg';
+import UserIcon from '../assets/user.svg';
+import LaneIcon from '../assets/lane.svg';
 
 const DefaultLayout = ({ children }) => {
     const { isDark, toggleTheme } = useTheme();
@@ -69,19 +61,19 @@ const DefaultLayout = ({ children }) => {
                         <p className={` font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-3`}>Dashboards</p>
                         <div className="space-y-1">
                             <div className={`flex items-center space-x-3 px-3 py-2 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-100'} border-l-4 border-blue-500`}>
-                                <BarChart3 className={`h-5 w-5 ${isDark ? 'text-gray-300' : 'text-gray-700'}`} />
+                                <img src={DefaultIcon} alt="Default" className="h-5 w-5" />
                                 <span className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>Default</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
-                                <ShoppingCart className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                                <img src={EcommerceIcon} alt="eCommerce" className="h-5 w-5" />
                                 <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>eCommerce</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
-                                <FolderOpen className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                                <img src={ProjectsIcon} alt="Projects" className="h-5 w-5" />
                                 <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Projects</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
-                                <BookOpen className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                                <img src={OnlineCourseIcon} alt="Online Courses" className="h-5 w-5" />
                                 <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Online Courses</span>
                             </div>
                         </div>
@@ -93,7 +85,7 @@ const DefaultLayout = ({ children }) => {
                         <div className="space-y-1">
                             <div>
                                 <div className="flex items-center space-x-3 px-3 py-2">
-                                    <User className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                                    <img src={UserProfileIcon} alt="User Profile" className="h-5 w-5" />
                                     <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>User Profile</span>
                                 </div>
                                 <div className="ml-12 space-y-1 ">
@@ -105,19 +97,19 @@ const DefaultLayout = ({ children }) => {
                                 </div>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
-                                <CreditCard className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                                <img src={AccountIcon} alt="Account" className="h-5 w-5" />
                                 <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Account</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
-                                <Building2 className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                                <img src={CorporateIcon} alt="Corporate" className="h-5 w-5" />
                                 <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Corporate</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
-                                <Rss className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                                <img src={BlogIcon} alt="Blog" className="h-5 w-5" />
                                 <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Blog</span>
                             </div>
                             <div className="flex items-center space-x-3 px-3 py-2">
-                                <MessageSquare className={`h-5 w-5 ${isDark ? 'text-gray-400' : 'text-gray-500'}`} />
+                                <img src={ChatIcon} alt="Social" className="h-5 w-5" />
                                 <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Social</span>
                             </div>
                         </div>
@@ -182,17 +174,30 @@ const DefaultLayout = ({ children }) => {
             <div className="mb-8">
               <h3 className={`text-lg font-semibold ${isDark ? 'text-white' : 'text-gray-900'} mb-4`}>Notifications</h3>
               <div className="space-y-4">
-                {notifications.map((notification, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center ">
-                      {notification.icon}
+                {notifications.map((notification, index) => {
+                  let iconComponent;
+                  if (notification.icon === '🐛') {
+                    iconComponent = <img src={BugIcon} alt="Bug" className="w-4 h-4" />;
+                  } else if (notification.icon === '👤') {
+                    iconComponent = <img src={UserIcon} alt="User" className="w-4 h-4" />;
+                  } else if (notification.icon === '🔔') {
+                    iconComponent = <img src={LaneIcon} alt="Lane" className="w-4 h-4" />;
+                  } else {
+                    iconComponent = <span className="text-sm">{notification.icon}</span>;
+                  }
+                  
+                  return (
+                    <div key={index} className="flex items-start space-x-3">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                        {iconComponent}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className={` ${isDark ? 'text-white' : 'text-gray-900'}`}>{notification.message}</p>
+                        <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'} mt-1`}>{notification.time}</p>
+                      </div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className={` ${isDark ? 'text-white' : 'text-gray-900'}`}>{notification.message}</p>
-                      <p className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-500'} mt-1`}>{notification.time}</p>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
 
@@ -202,8 +207,12 @@ const DefaultLayout = ({ children }) => {
               <div className="space-y-4">
                 {activities.map((activity, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center ">
-                      {activity.avatar}
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                      <img 
+                        src={`https://i.pravatar.cc/40?img=${index + 1}`} 
+                        alt={`Avatar ${index + 1}`} 
+                        className="w-full h-full object-cover rounded-full"
+                      />
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className={` ${isDark ? 'text-white' : 'text-gray-900'}`}>{activity.message}</p>
@@ -220,8 +229,12 @@ const DefaultLayout = ({ children }) => {
               <div className="space-y-3">
                 {contacts.map((contact, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center ">
-                      {contact.avatar}
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center overflow-hidden">
+                      <img 
+                        src={`https://i.pravatar.cc/40?img=${index + 10}`} 
+                        alt={`${contact.name} Avatar`} 
+                        className="w-full h-full object-cover rounded-full"
+                      />
                     </div>
                     <span className={` ${isDark ? 'text-white' : 'text-gray-900'}`}>{contact.name}</span>
                   </div>
