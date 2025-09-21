@@ -2,9 +2,9 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { useTheme } from '../context/ThemeContext';
 import Pagination from './Pagination';
 import StatusBadge from './StatusBadge';
-import ArrowDownUpIcon from './arrowDownUp.svg';
-import FilterIcon from './filter.svg';
-import AddIcon from './add.svg';
+import ArrowDownUpIcon from '../assets/arrowDownUp.svg?react';
+import FilterIcon from '../assets/filter.svg?react';
+import AddIcon from '../assets/add.svg?react';
 
 // Dummy Data (replace with your actual data source)
 const DUMMY_ORDERS = [
@@ -183,25 +183,17 @@ const Orders = () => {
       <div className={` flex items-center justify-between pb-4 border-b ${isDark ? 'border-gray-700' : 'border-gray-200'} mb-4`}>
         <div className="flex justify-center  items-center space-x-2">
           <button className={`p-2 rounded-md bg-inherit ${isDark ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-600 hover:bg-gray-100'}`}>
-            <img 
-              src={AddIcon} 
-              alt="Add" 
-              className={`h-5 w-5 ${isDark ? 'filter brightness-0 invert' : ''}`}
-            />
+     
+                        <AddIcon color={isDark ? 'white' : 'black'} className='cursor-pointer'/>
+
           </button>
           <button className={`p-2 rounded-md bg-inherit ${isDark ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-600 hover:bg-gray-100'}`}>
-            <img 
-              src={FilterIcon} 
-              alt="Filter" 
-              className={`h-5 w-5 ${isDark ? 'filter brightness-0 invert' : ''}`}
-            />
+            <FilterIcon color={isDark ? 'white' : 'black'} className='cursor-pointer'/>
+
           </button>
           <button className={`p-2 rounded-md bg-inherit ${isDark ? 'text-gray-300 hover:bg-gray-700' : 'text-gray-600 hover:bg-gray-100'}`}>
-            <img 
-              src={ArrowDownUpIcon} 
-              alt="Sort" 
-              className={`h-5 w-5 ${isDark ? 'filter brightness-0 invert' : ''}`}
-            />
+   
+            <ArrowDownUpIcon color={isDark ? 'white' : 'black'} className='cursor-pointer'/>
           </button>
         </div>
 

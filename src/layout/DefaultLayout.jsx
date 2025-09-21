@@ -4,19 +4,19 @@ import { notifications, activities, contacts } from '../constants/index';
 import { useTheme } from '../context/ThemeContext';
 import { useNavigate } from 'react-router-dom';
 
-// Import SVG icons
-import DefaultIcon from '../assets/default.svg';
-import EcommerceIcon from '../assets/eCommerce.svg';
-import ProjectsIcon from '../assets/projects.svg';
-import OnlineCourseIcon from '../assets/onLineCource.svg';
-import UserProfileIcon from '../assets/userProfile.svg';
-import AccountIcon from '../assets/account.svg';
-import CorporateIcon from '../assets/coroporate.svg';
-import BlogIcon from '../assets/blog.svg';
-import ChatIcon from '../assets/chat.svg';
-import BugIcon from '../components/bug.svg';
-import UserIcon from '../assets/user.svg';
-import LaneIcon from '../assets/lane.svg';
+// Import SVG icons as React components
+import DefaultIcon from '../assets/default.svg?react';
+import EcommerceIcon from '../assets/eCommerce.svg?react';
+import ProjectsIcon from '../assets/projects.svg?react';
+import OnlineCourseIcon from '../assets/onLineCource.svg?react';
+import UserProfileIcon from '../assets/userProfile.svg?react';
+import AccountIcon from '../assets/account.svg?react';
+import CorporateIcon from '../assets/coroporate.svg?react';
+import BlogIcon from '../assets/blog.svg?react';
+import ChatIcon from '../assets/chat.svg?react';
+import BugIcon from '../assets/bug.svg?react';
+import UserIcon from '../assets/user.svg?react';
+import LaneIcon from '../assets/lane.svg?react';
 
 const DefaultLayout = ({ children }) => {
     const { isDark, toggleTheme } = useTheme();
@@ -83,27 +83,19 @@ const DefaultLayout = ({ children }) => {
                         <p className={` font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-3`}>Dashboards</p>
                         <div className="space-y-1">
                             <div className={`flex items-center space-x-3 px-3 py-2 rounded-lg ${isDark ? 'bg-gray-700' : 'bg-gray-100'} border-l-4 border-blue-500`}>
-                                <div className={`h-5 w-5 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                                    <img src={DefaultIcon} alt="Default" className="h-full w-full" />
-                                </div>
+                                <DefaultIcon className={`h-5 w-5 ${isDark ? 'text-white' : 'text-black'}`} />
                                 <span className={`font-medium ${isDark ? 'text-white' : 'text-gray-900'}`}>Default</span>
                             </div>
                             <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                                <div className="h-5 w-5">
-                                    <img src={EcommerceIcon} alt="eCommerce" className="h-full w-full" />
-                                </div>
+                                <EcommerceIcon className="h-5 w-5" />
                                 <span>eCommerce</span>
                             </div>
                             <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                                <div className="h-5 w-5">
-                                    <img src={ProjectsIcon} alt="Projects" className="h-full w-full" />
-                                </div>
+                                <ProjectsIcon className="h-5 w-5" />
                                 <span>Projects</span>
                             </div>
                             <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
-                                <div className="h-5 w-5">
-                                    <img src={OnlineCourseIcon} alt="Online Courses" className="h-full w-full" />
-                                </div>
+                                <OnlineCourseIcon className="h-5 w-5" />
                                 <span>Online Courses</span>
                             </div>
                         </div>
@@ -114,9 +106,9 @@ const DefaultLayout = ({ children }) => {
                         <p className={` font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'} mb-3`}>Pages</p>
                         <div className="space-y-1">
                             <div>
-                                <div className="flex items-center space-x-3 px-3 py-2">
-                                    <img src={UserProfileIcon} alt="User Profile" className="h-5 w-5" />
-                                    <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>User Profile</span>
+                                <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                                    <UserProfileIcon color={isDark? "white": "black"} className="h-5 w-5 cursor-pointer" />
+                                    <span>User Profile</span>
                                 </div>
                                 <div className="ml-12 space-y-1 ">
                                     <div className={`py-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Overview</div>
@@ -126,21 +118,21 @@ const DefaultLayout = ({ children }) => {
                                     <div className={`py-1 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>Followers</div>
                                 </div>
                             </div>
-                            <div className="flex items-center space-x-3 px-3 py-2">
-                                <img src={AccountIcon} alt="Account" className="h-5 w-5" />
-                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Account</span>
+                            <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                                <AccountIcon color={isDark? "white": "black"} className="h-5 w-5 cursor-pointer" />
+                                <span>Account</span>
                             </div>
-                            <div className="flex items-center space-x-3 px-3 py-2">
-                                <img src={CorporateIcon} alt="Corporate" className="h-5 w-5" />
-                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Corporate</span>
+                            <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-white' : 'text-black'}`}>
+                                <CorporateIcon  color={isDark? "white": "black"} className="h-5 w-5 cursor-pointer" />
+                                <span>Corporate</span>
                             </div>
-                            <div className="flex items-center space-x-3 px-3 py-2">
-                                <img src={BlogIcon} alt="Blog" className="h-5 w-5" />
-                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Blog</span>
+                            <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                                <BlogIcon color={isDark? "white": "black"} className="h-5 w-5 cursor-pointer" />
+                                <span>Blog</span>
                             </div>
-                            <div className="flex items-center space-x-3 px-3 py-2">
-                                <img src={ChatIcon} alt="Social" className="h-5 w-5" />
-                                <span className={` ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Social</span>
+                            <div className={`flex items-center space-x-3 px-3 py-2 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
+                                <ChatIcon color={isDark? "white": "black"} className="h-5 w-5 cursor-pointer" />
+                                <span>Social</span>
                             </div>
                         </div>
                     </div>
@@ -237,11 +229,11 @@ const DefaultLayout = ({ children }) => {
                 {notifications.map((notification, index) => {
                   let iconComponent;
                   if (notification.icon === '🐛') {
-                    iconComponent = <img src={BugIcon} alt="Bug" className="w-4 h-4" />;
+                    iconComponent = <BugIcon className={`w-4 h-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`} />;
                   } else if (notification.icon === '👤') {
-                    iconComponent = <img src={UserIcon} alt="User" className="w-4 h-4" />;
+                    iconComponent = <UserIcon className={`w-4 h-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`} />;
                   } else if (notification.icon === '🔔') {
-                    iconComponent = <img src={LaneIcon} alt="Lane" className="w-4 h-4" />;
+                    iconComponent = <LaneIcon className={`w-4 h-4 ${isDark ? 'text-gray-300' : 'text-gray-600'}`} />;
                   } else {
                     iconComponent = <span className="text-sm">{notification.icon}</span>;
                   }
